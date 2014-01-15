@@ -1,5 +1,7 @@
 package com.sarabadani.android.parandroid.activity;
 
+import android.util.Log;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sarabadani.android.parandroid.model.Rocket;
@@ -28,7 +30,18 @@ public class ParRenderer {
     public void render() {
         spriteBatch.begin();
         Rocket rocket = world.getRocket();
-        rocket.update();
+//        float movementx = Gdx.input.getAccelerometerX();
+        float movementy = Gdx.input.getAccelerometerY();
+//        float movementz = Gdx.input.getAccelerometerZ();
+Log.i("MOVE:",String.valueOf(movementy));
+    if(movementy >2){
+        rocket.moveRight();
+    }
+        else if(movementy < -2){
+            rocket.moveLeft();
+        }
+        else rocket.stop();
+        rocket.update(movementy);
         spriteBatch.draw(rocketTexture, rocket.getPosition().x, rocket.getPosition().y);
         spriteBatch.end();
     }

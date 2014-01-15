@@ -3,8 +3,22 @@ buildscript {
     dependencies { classpath 'com.android.tools.build:gradle:0.6.3' }
 }
 
+
+
 allprojects {
     apply plugin: 'idea'
+
+    idea {
+
+        //if you want parts of paths in resulting files (*.iml, etc.) to be replaced by variables (Files)
+        module {
+
+            //if you love browsing Javadoc
+            downloadJavadoc = true
+
+        }
+    }
+
 
     version = "1.0"
     ext.appName = "mygame"

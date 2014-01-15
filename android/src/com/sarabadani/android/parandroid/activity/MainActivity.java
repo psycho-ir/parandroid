@@ -20,7 +20,7 @@ public class MainActivity extends AndroidApplication {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-        config.useAccelerometer = false;
+        config.useAccelerometer = true;
         config.useCompass = false;
         config.useWakelock = true;
         config.useGL20 = true;

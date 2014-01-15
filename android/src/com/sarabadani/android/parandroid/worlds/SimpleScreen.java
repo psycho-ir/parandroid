@@ -9,23 +9,24 @@ import com.sarabadani.android.parandroid.activity.ParRenderer;
 /**
  * Created by soroosh on 1/15/14.
  */
-public class SimpleScreen implements Screen,InputProcessor {
+public class SimpleScreen implements Screen, InputProcessor {
     private Sample world = new Sample();
 
     ParRenderer renderer = new ParRenderer(world);
+    int width = 0;
+    int height = 0;
 
     @Override
     public void render(float v) {
-        	    Gdx.gl.glClearColor(0.1f, 1.0f, 0.1f, 0.0f);
-        	    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-        	    renderer.render();
-
-
+        Gdx.gl.glClearColor(0.1f, 1.0f, 0.1f, 0.0f);
+        Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        renderer.render();
     }
 
     @Override
     public void resize(int i, int i2) {
-
+        this.width = i;
+        this.height = i2;
     }
 
     @Override

@@ -31,18 +31,22 @@ public class Rocket {
         this.state = state;
     }
 
-    public void update() {
+    public void update(float speed) {
         switch (this.state) {
             case MOVING_RIGHT:
-                this.position.add(1, 0);
+                this.position.add(speed*3, 0);
                 break;
             case MOVING_LEFT:
-                this.position.add(-1, 0);
+                this.position.add(speed*3, 0);
                 break;
             case IDLE:
                 return;
         }
 
+    }
+
+    public void moveLeft() {
+        this.state = State.MOVING_LEFT;
     }
 
     public enum State {

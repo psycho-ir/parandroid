@@ -9,10 +9,22 @@ import com.sarabadani.android.parandroid.application.HelloApp;
 
 
 public class MainActivity extends AndroidApplication {
-	@Override
+/*	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		initialize(new HelloApp(), config);
-	}
+	}*/
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        config.useAccelerometer = false;
+        config.useCompass = false;
+        config.useWakelock = true;
+        config.useGL20 = true;
+
+        initialize(new StarAssault(), config);
+    }
 }

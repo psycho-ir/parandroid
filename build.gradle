@@ -1,0 +1,37 @@
+buildscript {
+    repositories { mavenCentral() }
+    dependencies { classpath 'com.android.tools.build:gradle:0.6.3' }
+}
+
+allprojects {
+    apply plugin: 'idea'
+
+    version = "1.0"
+    ext.appName = "mygame"
+    ext.gdxVersion = "1.0-SNAPSHOT" // Use "1.0-SNAPSHOT" for nightly build
+
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        mavenLocal();
+    }
+}
+
+subprojects {
+    apply plugin: "eclipse"
+}
+
+
+project(":android") {
+    apply plugin: "android"
+
+    configurations { natives }
+
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+    }
+}

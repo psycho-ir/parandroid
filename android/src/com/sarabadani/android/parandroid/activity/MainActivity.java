@@ -24,7 +24,8 @@ public class MainActivity extends AndroidApplication {
         config.useCompass = false;
         config.useWakelock = true;
         config.useGL20 = true;
+        initialize(new Parandroid(),config);
 
-        initialize(new StarAssault(), config);
+//        initialize(new StarAssault(), config);
     }
 }

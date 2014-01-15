@@ -22,4 +22,8 @@ public class Sample {
         rocket = new Rocket(new Vector2(20,0));
         blocks.add(new Block(1,new Vector2(100,100)));
     }
+
+    public Rocket getRocket() {
+        return rocket;
+    }
 }

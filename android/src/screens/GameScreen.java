@@ -19,6 +19,7 @@ public class GameScreen implements Screen, InputProcessor {
 	private BobController controller;
 	
 	private int width, height;
+    private int y=0;
 	
 	@Override
 	public void show() {
@@ -128,7 +129,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean touchDragged(int x, int y, int pointer) {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
